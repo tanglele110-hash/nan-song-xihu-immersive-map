@@ -1,0 +1,485 @@
+﻿[
+    {
+        "id":  "landing-bg",
+        "src":  "app/assets/landing/landing-bg.png",
+        "kind":  "image",
+        "publishStatus":  "public",
+        "source":  "generated landing export",
+        "width":  1834,
+        "height":  858
+    },
+    {
+        "id":  "landing-hero",
+        "src":  "app/assets/landing/landing-hero.png",
+        "kind":  "image",
+        "publishStatus":  "public",
+        "source":  "generated landing export",
+        "width":  1672,
+        "height":  941
+    },
+    {
+        "id":  "map-overview-bg",
+        "src":  "app/assets/map/map-overview-bg.png",
+        "kind":  "image",
+        "publishStatus":  "public",
+        "source":  "generated map export",
+        "width":  1672,
+        "height":  941
+    },
+    {
+        "id":  "header-seal",
+        "src":  "app/assets/header/header-seal.png",
+        "kind":  "image",
+        "publishStatus":  "public",
+        "source":  "legacy visual asset",
+        "width":  66,
+        "height":  52
+    },
+    {
+        "id":  "map-header",
+        "src":  "app/assets/header/map-header.png",
+        "kind":  "image",
+        "publishStatus":  "public",
+        "source":  "runtime header asset",
+        "width":  1672,
+        "height":  941
+    },
+    {
+        "id":  "scroll-header",
+        "src":  "app/assets/header/scroll-header.png",
+        "kind":  "image",
+        "publishStatus":  "public",
+        "source":  "runtime header asset",
+        "width":  1672,
+        "height":  941
+    },
+    {
+        "id":  "notes-reference",
+        "src":  "app/assets/header/notes-reference.png",
+        "kind":  "image",
+        "publishStatus":  "public",
+        "source":  "runtime reference asset",
+        "width":  1672,
+        "height":  941
+    },
+    {
+        "id":  "inquiry-header",
+        "src":  "app/assets/header/inquiry-header.png",
+        "kind":  "image",
+        "publishStatus":  "public",
+        "source":  "runtime header asset",
+        "width":  1672,
+        "height":  941
+    },
+    {
+        "id":  "scroll-sisheng-yanxiang-guan",
+        "src":  "app/assets/scroll/north-bank/孤山四圣延祥观.jpg",
+        "kind":  "image",
+        "publishStatus":  "public",
+        "source":  "legacy scroll segment",
+        "height":  2480,
+        "width":  9449
+    },
+    {
+        "id":  "scroll-geling-pingzhang-di",
+        "src":  "app/assets/scroll/north-bank/葛岭寺观平章第.jpg",
+        "kind":  "image",
+        "publishStatus":  "public",
+        "source":  "legacy scroll segment",
+        "height":  2480,
+        "width":  9449
+    },
+    {
+        "id":  "scroll-dashifo-yuan",
+        "src":  "app/assets/scroll/north-bank/巨石山下大石佛.jpg",
+        "kind":  "image",
+        "publishStatus":  "public",
+        "source":  "legacy scroll segment",
+        "height":  2480,
+        "width":  9449
+    },
+    {
+        "id":  "cold-hushan-sui-shi-zip",
+        "src":  "app/assets/downloads/西湖繁胜冷识集-湖山岁时-24张.zip",
+        "kind":  "zip",
+        "publishStatus":  "public",
+        "source":  "legacy cold knowledge export",
+        "sizeBytes":  59203040
+    },
+    {
+        "id":  "cold-hushan-sui-shi-01",
+        "src":  "app/assets/cold-knowledge/hushan-sui-shi/1.png",
+        "kind":  "image",
+        "publishStatus":  "public",
+        "source":  "legacy cold knowledge card",
+        "width":  1086,
+        "height":  1448
+    },
+    {
+        "id":  "cold-hushan-sui-shi-02",
+        "src":  "app/assets/cold-knowledge/hushan-sui-shi/2.png",
+        "kind":  "image",
+        "publishStatus":  "public",
+        "source":  "legacy cold knowledge card",
+        "width":  1086,
+        "height":  1448
+    },
+    {
+        "id":  "cold-hushan-sui-shi-03",
+        "src":  "app/assets/cold-knowledge/hushan-sui-shi/3.png",
+        "kind":  "image",
+        "publishStatus":  "public",
+        "source":  "legacy cold knowledge card",
+        "width":  1086,
+        "height":  1448
+    },
+    {
+        "id":  "cold-hushan-sui-shi-04",
+        "src":  "app/assets/cold-knowledge/hushan-sui-shi/4.png",
+        "kind":  "image",
+        "publishStatus":  "public",
+        "source":  "legacy cold knowledge card",
+        "width":  1086,
+        "height":  1448
+    },
+    {
+        "id":  "cold-hushan-sui-shi-05",
+        "src":  "app/assets/cold-knowledge/hushan-sui-shi/5.png",
+        "kind":  "image",
+        "publishStatus":  "public",
+        "source":  "legacy cold knowledge card",
+        "width":  1086,
+        "height":  1448
+    },
+    {
+        "id":  "cold-hushan-sui-shi-06",
+        "src":  "app/assets/cold-knowledge/hushan-sui-shi/6.png",
+        "kind":  "image",
+        "publishStatus":  "public",
+        "source":  "legacy cold knowledge card",
+        "width":  1086,
+        "height":  1448
+    },
+    {
+        "id":  "cold-hushan-sui-shi-07",
+        "src":  "app/assets/cold-knowledge/hushan-sui-shi/7.png",
+        "kind":  "image",
+        "publishStatus":  "public",
+        "source":  "legacy cold knowledge card",
+        "width":  1086,
+        "height":  1448
+    },
+    {
+        "id":  "cold-hushan-sui-shi-08",
+        "src":  "app/assets/cold-knowledge/hushan-sui-shi/8.png",
+        "kind":  "image",
+        "publishStatus":  "public",
+        "source":  "legacy cold knowledge card",
+        "width":  1086,
+        "height":  1448
+    },
+    {
+        "id":  "cold-hushan-sui-shi-09",
+        "src":  "app/assets/cold-knowledge/hushan-sui-shi/9.png",
+        "kind":  "image",
+        "publishStatus":  "public",
+        "source":  "legacy cold knowledge card",
+        "width":  1086,
+        "height":  1448
+    },
+    {
+        "id":  "cold-hushan-sui-shi-10",
+        "src":  "app/assets/cold-knowledge/hushan-sui-shi/10.png",
+        "kind":  "image",
+        "publishStatus":  "public",
+        "source":  "legacy cold knowledge card",
+        "width":  1086,
+        "height":  1448
+    },
+    {
+        "id":  "cold-hushan-sui-shi-11",
+        "src":  "app/assets/cold-knowledge/hushan-sui-shi/11.png",
+        "kind":  "image",
+        "publishStatus":  "public",
+        "source":  "legacy cold knowledge card",
+        "width":  1086,
+        "height":  1448
+    },
+    {
+        "id":  "cold-hushan-sui-shi-12",
+        "src":  "app/assets/cold-knowledge/hushan-sui-shi/12.png",
+        "kind":  "image",
+        "publishStatus":  "public",
+        "source":  "legacy cold knowledge card",
+        "width":  1086,
+        "height":  1448
+    },
+    {
+        "id":  "cold-hushan-sui-shi-13",
+        "src":  "app/assets/cold-knowledge/hushan-sui-shi/13.png",
+        "kind":  "image",
+        "publishStatus":  "public",
+        "source":  "legacy cold knowledge card",
+        "width":  1086,
+        "height":  1448
+    },
+    {
+        "id":  "cold-hushan-sui-shi-14",
+        "src":  "app/assets/cold-knowledge/hushan-sui-shi/14.png",
+        "kind":  "image",
+        "publishStatus":  "public",
+        "source":  "legacy cold knowledge card",
+        "width":  1086,
+        "height":  1448
+    },
+    {
+        "id":  "cold-hushan-sui-shi-15",
+        "src":  "app/assets/cold-knowledge/hushan-sui-shi/15.png",
+        "kind":  "image",
+        "publishStatus":  "public",
+        "source":  "legacy cold knowledge card",
+        "width":  1086,
+        "height":  1448
+    },
+    {
+        "id":  "cold-hushan-sui-shi-16",
+        "src":  "app/assets/cold-knowledge/hushan-sui-shi/16.png",
+        "kind":  "image",
+        "publishStatus":  "public",
+        "source":  "legacy cold knowledge card",
+        "width":  1086,
+        "height":  1448
+    },
+    {
+        "id":  "cold-hushan-sui-shi-17",
+        "src":  "app/assets/cold-knowledge/hushan-sui-shi/17.png",
+        "kind":  "image",
+        "publishStatus":  "public",
+        "source":  "legacy cold knowledge card",
+        "width":  1086,
+        "height":  1448
+    },
+    {
+        "id":  "cold-hushan-sui-shi-18",
+        "src":  "app/assets/cold-knowledge/hushan-sui-shi/18.png",
+        "kind":  "image",
+        "publishStatus":  "public",
+        "source":  "legacy cold knowledge card",
+        "width":  1086,
+        "height":  1448
+    },
+    {
+        "id":  "cold-hushan-sui-shi-19",
+        "src":  "app/assets/cold-knowledge/hushan-sui-shi/19.png",
+        "kind":  "image",
+        "publishStatus":  "public",
+        "source":  "legacy cold knowledge card",
+        "width":  1086,
+        "height":  1448
+    },
+    {
+        "id":  "cold-hushan-sui-shi-20",
+        "src":  "app/assets/cold-knowledge/hushan-sui-shi/20.png",
+        "kind":  "image",
+        "publishStatus":  "public",
+        "source":  "legacy cold knowledge card",
+        "width":  1086,
+        "height":  1448
+    },
+    {
+        "id":  "cold-hushan-sui-shi-21",
+        "src":  "app/assets/cold-knowledge/hushan-sui-shi/21.png",
+        "kind":  "image",
+        "publishStatus":  "public",
+        "source":  "legacy cold knowledge card",
+        "width":  1086,
+        "height":  1448
+    },
+    {
+        "id":  "cold-hushan-sui-shi-22",
+        "src":  "app/assets/cold-knowledge/hushan-sui-shi/22.png",
+        "kind":  "image",
+        "publishStatus":  "public",
+        "source":  "legacy cold knowledge card",
+        "width":  1086,
+        "height":  1448
+    },
+    {
+        "id":  "cold-hushan-sui-shi-23",
+        "src":  "app/assets/cold-knowledge/hushan-sui-shi/23.png",
+        "kind":  "image",
+        "publishStatus":  "public",
+        "source":  "legacy cold knowledge card",
+        "width":  1086,
+        "height":  1448
+    },
+    {
+        "id":  "cold-hushan-sui-shi-24",
+        "src":  "app/assets/cold-knowledge/hushan-sui-shi/24.png",
+        "kind":  "image",
+        "publishStatus":  "public",
+        "source":  "legacy cold knowledge card",
+        "width":  1086,
+        "height":  1448
+    },
+    {
+        "id":  "cold-hushang-yanhuo-zip",
+        "src":  "app/assets/downloads/西湖繁胜冷识集-湖上烟火-12张.zip",
+        "kind":  "zip",
+        "publishStatus":  "public",
+        "source":  "legacy cold knowledge export",
+        "sizeBytes":  27445196
+    },
+    {
+        "id":  "cold-hushang-yanhuo-01",
+        "src":  "app/assets/cold-knowledge/hushang-yanhuo/1.png",
+        "kind":  "image",
+        "publishStatus":  "public",
+        "source":  "legacy cold knowledge card",
+        "width":  1086,
+        "height":  1448
+    },
+    {
+        "id":  "cold-hushang-yanhuo-02",
+        "src":  "app/assets/cold-knowledge/hushang-yanhuo/2.png",
+        "kind":  "image",
+        "publishStatus":  "public",
+        "source":  "legacy cold knowledge card",
+        "width":  1086,
+        "height":  1448
+    },
+    {
+        "id":  "cold-hushang-yanhuo-03",
+        "src":  "app/assets/cold-knowledge/hushang-yanhuo/3.png",
+        "kind":  "image",
+        "publishStatus":  "public",
+        "source":  "legacy cold knowledge card",
+        "width":  1086,
+        "height":  1448
+    },
+    {
+        "id":  "cold-hushang-yanhuo-04",
+        "src":  "app/assets/cold-knowledge/hushang-yanhuo/4.png",
+        "kind":  "image",
+        "publishStatus":  "public",
+        "source":  "legacy cold knowledge card",
+        "width":  1086,
+        "height":  1448
+    },
+    {
+        "id":  "cold-hushang-yanhuo-05",
+        "src":  "app/assets/cold-knowledge/hushang-yanhuo/5.png",
+        "kind":  "image",
+        "publishStatus":  "public",
+        "source":  "legacy cold knowledge card",
+        "width":  1086,
+        "height":  1448
+    },
+    {
+        "id":  "cold-hushang-yanhuo-06",
+        "src":  "app/assets/cold-knowledge/hushang-yanhuo/6.png",
+        "kind":  "image",
+        "publishStatus":  "public",
+        "source":  "legacy cold knowledge card",
+        "width":  1086,
+        "height":  1448
+    },
+    {
+        "id":  "cold-hushang-yanhuo-07",
+        "src":  "app/assets/cold-knowledge/hushang-yanhuo/7.png",
+        "kind":  "image",
+        "publishStatus":  "public",
+        "source":  "legacy cold knowledge card",
+        "width":  1086,
+        "height":  1448
+    },
+    {
+        "id":  "cold-hushang-yanhuo-08",
+        "src":  "app/assets/cold-knowledge/hushang-yanhuo/8.png",
+        "kind":  "image",
+        "publishStatus":  "public",
+        "source":  "legacy cold knowledge card",
+        "width":  1086,
+        "height":  1448
+    },
+    {
+        "id":  "cold-hushang-yanhuo-09",
+        "src":  "app/assets/cold-knowledge/hushang-yanhuo/9.png",
+        "kind":  "image",
+        "publishStatus":  "public",
+        "source":  "legacy cold knowledge card",
+        "width":  1086,
+        "height":  1448
+    },
+    {
+        "id":  "cold-hushang-yanhuo-10",
+        "src":  "app/assets/cold-knowledge/hushang-yanhuo/10.png",
+        "kind":  "image",
+        "publishStatus":  "public",
+        "source":  "legacy cold knowledge card",
+        "width":  1086,
+        "height":  1448
+    },
+    {
+        "id":  "cold-hushang-yanhuo-11",
+        "src":  "app/assets/cold-knowledge/hushang-yanhuo/11.png",
+        "kind":  "image",
+        "publishStatus":  "public",
+        "source":  "legacy cold knowledge card",
+        "width":  1086,
+        "height":  1448
+    },
+    {
+        "id":  "cold-hushang-yanhuo-12",
+        "src":  "app/assets/cold-knowledge/hushang-yanhuo/12.png",
+        "kind":  "image",
+        "publishStatus":  "public",
+        "source":  "legacy cold knowledge card",
+        "width":  1086,
+        "height":  1448
+    },
+    {
+        "id":  "cold-juanzhong-weishi-zip",
+        "src":  "app/assets/downloads/西湖繁胜冷识集-卷中微识-4张.zip",
+        "kind":  "zip",
+        "publishStatus":  "public",
+        "source":  "knowledge card export bundle",
+        "sizeBytes":  11717231
+    },
+    {
+        "id":  "cold-juanzhong-weishi-01",
+        "src":  "app/assets/cold-knowledge/juanzhong-weishi/01.png",
+        "kind":  "image",
+        "publishStatus":  "public",
+        "source":  "knowledge card export",
+        "width":  1024,
+        "height":  1536
+    },
+    {
+        "id":  "cold-juanzhong-weishi-02",
+        "src":  "app/assets/cold-knowledge/juanzhong-weishi/02.png",
+        "kind":  "image",
+        "publishStatus":  "public",
+        "source":  "knowledge card export",
+        "width":  1024,
+        "height":  1536
+    },
+    {
+        "id":  "cold-juanzhong-weishi-03",
+        "src":  "app/assets/cold-knowledge/juanzhong-weishi/03.png",
+        "kind":  "image",
+        "publishStatus":  "public",
+        "source":  "knowledge card export",
+        "width":  1024,
+        "height":  1536
+    },
+    {
+        "id":  "cold-juanzhong-weishi-04",
+        "src":  "app/assets/cold-knowledge/juanzhong-weishi/04.png",
+        "kind":  "image",
+        "publishStatus":  "public",
+        "source":  "knowledge card export",
+        "width":  1024,
+        "height":  1536
+    }
+]

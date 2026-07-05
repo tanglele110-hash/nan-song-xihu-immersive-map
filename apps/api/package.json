@@ -1,0 +1,19 @@
+{
+  "name": "@westlake/api",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/server.ts",
+    "start": "node dist/apps/api/src/server.js",
+    "build": "tsc -p tsconfig.json && tsc -p tsconfig.build.json",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@westlake/schemas": "*",
+    "fastify": "^5.6.0",
+    "zod": "^4.1.0"
+  },
+  "devDependencies": {
+    "vitest": "^3.2.0"
+  }
+}

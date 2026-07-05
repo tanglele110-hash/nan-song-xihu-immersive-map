@@ -1,0 +1,30 @@
+{
+  "name": "west-lake-panorama",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev:web": "npm run generate:app-content && npm --workspace apps/web run dev",
+    "dev:api": "npm --workspace apps/api run dev",
+    "start:api": "npm --workspace apps/api run start",
+    "preview:web": "npm --workspace apps/web run preview",
+    "build": "npm run generate:app-content && npm --workspaces --if-present run build",
+    "assets:report": "tsx tools/report-assets.ts",
+    "assets:report:write": "tsx tools/report-assets.ts --write",
+    "assets:tiles:plan": "tsx tools/generate-scroll-tiles.ts",
+    "generate:app-content": "tsx tools/generate-app-content.ts",
+    "test": "npm --workspaces --if-present run test",
+    "test:e2e": "npm run generate:app-content && tsx tools/run-e2e.ts",
+    "validate:content": "tsx tools/validate-content.ts && tsx tools/generate-app-content.ts --check"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "@playwright/test": "^1.56.0",
+    "tsx": "^4.20.0",
+    "typescript": "^5.9.0",
+    "vitest": "^3.2.0"
+  }
+}

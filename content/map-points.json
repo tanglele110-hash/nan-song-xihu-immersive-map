@@ -1,0 +1,86 @@
+[
+  {
+    "id": "map-duanqiao",
+    "label": "断桥入口",
+    "region": "西湖北岸",
+    "status": "open",
+    "targetType": "node",
+    "scrollTarget": "duanqiao",
+    "sourceStatus": "较可信",
+    "summary": "从湖东桥路入北岸，进入断桥一带的长卷观察。",
+    "position": {
+      "x": 0.82,
+      "y": 0.58
+    }
+  },
+  {
+    "id": "map-gushan",
+    "label": "孤山路入口",
+    "region": "西湖北岸",
+    "status": "open",
+    "targetType": "node",
+    "scrollTarget": "sisheng-yanxiang-guan",
+    "sourceStatus": "待考证",
+    "summary": "沿北岸山水过渡，进入孤山路和近岸建筑段。",
+    "position": {
+      "x": 0.42,
+      "y": 0.23
+    }
+  },
+  {
+    "id": "map-baoshu",
+    "label": "保叔塔入口",
+    "region": "西湖北岸",
+    "status": "open",
+    "targetType": "node",
+    "scrollTarget": "baoshu-ta-chongshou-yuan",
+    "sourceStatus": "较可信",
+    "summary": "以北山塔影为锚点，进入寺观和山麓段。",
+    "position": {
+      "x": 0.55,
+      "y": 0.18
+    }
+  },
+  {
+    "id": "map-xicun",
+    "label": "西村渡口入口",
+    "region": "西湖北岸",
+    "status": "open",
+    "targetType": "node",
+    "scrollTarget": "xicun-dukou",
+    "sourceStatus": "待考证",
+    "summary": "从西村水岸进入市井、舟渡和湖岸收束段。",
+    "position": {
+      "x": 0.17,
+      "y": 0.52
+    }
+  },
+  {
+    "id": "map-south-bank",
+    "label": "南岸待展开",
+    "region": "西湖南岸",
+    "status": "locked",
+    "targetType": "region",
+    "scrollTarget": "future-south-bank",
+    "sourceStatus": "创作性推演",
+    "summary": "当前 MVP 聚焦北岸，全湖其他段后续接入。",
+    "position": {
+      "x": 0.43,
+      "y": 0.84
+    }
+  },
+  {
+    "id": "map-city",
+    "label": "城郭线索",
+    "region": "湖东城郭",
+    "status": "pending",
+    "targetType": "region",
+    "scrollTarget": "future-city-edge",
+    "sourceStatus": "待考证",
+    "summary": "作为后续校准城市与湖岸关系的线索点。",
+    "position": {
+      "x": 0.9,
+      "y": 0.36
+    }
+  }
+]

@@ -1,0 +1,62 @@
+# Asset Optimization Report
+
+Updated: 2026-07-04
+
+## Summary
+
+- Manifest assets: 54
+- Published files in `app/assets`: 54
+- Published asset size: 264.42 MB
+- Proposed scroll tile size: 1024px
+- Proposed scroll tile levels: 100%, 50%, 25%
+
+## Size By Group
+
+| Group | Files | Size |
+| --- | --- | --- |
+| cold-knowledge | 40 | 94.54 MB |
+| downloads | 3 | 93.81 MB |
+| scroll | 3 | 61.94 MB |
+| header | 5 | 7.69 MB |
+| landing | 2 | 4.31 MB |
+| map | 1 | 2.13 MB |
+
+## Size By Extension
+
+| Extension | Files | Size |
+| --- | --- | --- |
+| .png | 48 | 108.67 MB |
+| .zip | 3 | 93.81 MB |
+| .jpg | 3 | 61.94 MB |
+
+## Largest Files
+
+| File | Size |
+| --- | --- |
+| downloads/西湖繁胜冷识集-湖山岁时-24张.zip | 56.46 MB |
+| downloads/西湖繁胜冷识集-湖上烟火-12张.zip | 26.17 MB |
+| scroll/north-bank/葛岭寺观平章第.jpg | 21.15 MB |
+| scroll/north-bank/巨石山下大石佛.jpg | 20.75 MB |
+| scroll/north-bank/孤山四圣延祥观.jpg | 20.04 MB |
+| downloads/西湖繁胜冷识集-卷中微识-4张.zip | 11.17 MB |
+| cold-knowledge/juanzhong-weishi/02.png | 3.01 MB |
+| cold-knowledge/juanzhong-weishi/04.png | 2.87 MB |
+| cold-knowledge/juanzhong-weishi/01.png | 2.86 MB |
+| cold-knowledge/hushan-sui-shi/13.png | 2.81 MB |
+| cold-knowledge/juanzhong-weishi/03.png | 2.71 MB |
+| cold-knowledge/hushan-sui-shi/12.png | 2.63 MB |
+
+## Scroll Tile Plan
+
+| Segment | Source | Levels | Tiles |
+| --- | --- | --- | --- |
+| sisheng-yanxiang-guan | 9449x2480 | 100%:10x3<br>50%:5x2<br>25%:3x1 | 43 |
+| geling-pingzhang-di | 9449x2480 | 100%:10x3<br>50%:5x2<br>25%:3x1 | 43 |
+| volume-dashifo-yuan | 9449x2480 | 100%:10x3<br>50%:5x2<br>25%:3x1 | 43 |
+
+## Recommendations
+
+- First priority: create WebP or AVIF derivatives for the three scroll JPG files and keep JPG as fallback.
+- Second priority: generate 1024px scroll tiles at 100%, 50%, and 25% levels. This makes the scroll view eligible for lazy loading instead of loading three full-width JPG files up front.
+- Third priority: recompress cold-knowledge PNG cards or create WebP derivatives while keeping the original PNG cards available for download packs.
+- Keep the confirmed `app/index.html` presentation unchanged until the tiled renderer has its own E2E coverage.

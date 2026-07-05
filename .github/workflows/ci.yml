@@ -1,0 +1,62 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+      - "codex/**"
+  workflow_dispatch:
+
+concurrency:
+  group: westlake-ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate-test-build:
+    name: Validate, test, build, e2e
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22.12.0"
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Playwright Chromium
+        run: npx playwright install --with-deps chromium
+
+      - name: Validate content
+        run: npm run validate:content
+
+      - name: Check asset optimization plan
+        run: npm run assets:report
+
+      - name: Run unit tests
+        run: npm run test
+
+      - name: Build production artifacts
+        run: npm run build
+
+      - name: Run desktop E2E
+        run: npm run test:e2e
+        env:
+          CI: "true"
+
+      - name: Upload Playwright artifacts on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-artifacts
+          path: |
+            playwright-report/
+            test-results/
+          if-no-files-found: ignore

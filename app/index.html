@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>西湖繁胜全景图</title>
+    <meta
+      name="description"
+      content="《西湖繁胜全景图》沉浸式交互网站初稿。"
+    />
+    <link rel="stylesheet" href="./styles.css?v=site-credit-landing" />
+  </head>
+  <body>
+    <div class="site-frame">
+      <section id="landing" class="view landing-view is-active" aria-labelledby="landing-title">
+        <div class="landing-map-bg" aria-hidden="true"></div>
+        <h1 id="landing-title" class="sr-only">西湖繁胜全景图</h1>
+        <nav class="landing-entry-links" aria-label="四个一级版块">
+          <button class="landing-entry landing-entry-map" type="button" data-go="map">入画</button>
+          <button class="landing-entry landing-entry-scroll" type="button" data-go="scroll">游湖</button>
+          <button class="landing-entry landing-entry-notes" type="button" data-go="notes">拾遗</button>
+          <button class="landing-entry landing-entry-inquiry" type="button" data-go="inquiry">问湖</button>
+        </nav>
+        <footer class="site-credit" aria-label="制作署名">由木渡川与codex共同制作 · 2026</footer>
+      </section>
+
+      <header id="app-shell" class="app-shell" hidden>
+        <a class="wordmark" href="#landing" aria-label="回到卷首">
+          <span>西湖繁胜全景图</span>
+          <small>Digital Scroll</small>
+        </a>
+        <nav class="main-nav" aria-label="主导航">
+          <a href="#map" data-nav="map">入画</a>
+          <a href="#scroll" data-nav="scroll">游湖</a>
+          <a href="#notes" data-nav="notes">拾遗</a>
+          <a href="#inquiry" data-nav="inquiry">问湖</a>
+        </nav>
+      </header>
+
+      <main>
+        <section id="map" class="view page-view map-view" aria-labelledby="map-title">
+          <h2 id="map-title" class="sr-only">南宋西湖环湖全景导览</h2>
+          <div class="map-overview-stage">
+            <img
+              class="map-overview-image"
+              src="./assets/map/map-overview-bg.png"
+              alt="南宋西湖环湖全景导览图"
+            />
+
+            <div class="map-volume-links" aria-label="西湖北岸分卷入口">
+              <button
+                class="map-volume-hit hit-gushan"
+                type="button"
+                data-go="scroll?target=sisheng-yanxiang-guan"
+                aria-label="进入孤山四圣延祥观分卷"
+                title="孤山四圣延祥观"
+              ></button>
+              <button
+                class="map-volume-hit hit-geling"
+                type="button"
+                data-go="scroll?target=geling-pingzhang-di"
+                aria-label="进入葛岭寺观平章第分卷"
+                title="葛岭寺观平章第"
+              ></button>
+              <button
+                class="map-volume-hit hit-stone"
+                type="button"
+                data-go="scroll?target=dashifo-yuan"
+                aria-label="进入巨石山下大石佛分卷"
+                title="巨石山下大石佛"
+              ></button>
+              <button class="map-volume-hit hit-yuewang" type="button" data-go="scroll" aria-label="进入栖霞岭下岳王庙" title="栖霞岭下岳王庙"></button>
+              <button class="map-volume-hit hit-su" type="button" data-go="scroll" aria-label="进入苏公长堤通南北" title="苏公长堤通南北"></button>
+              <button class="map-volume-hit hit-nanping" type="button" data-go="scroll" aria-label="进入南屏望经向中原" title="南屏望经向中原"></button>
+              <button class="map-volume-hit hit-leifeng" type="button" data-go="scroll" aria-label="进入钱湖门外雷峰塔" title="钱湖门外雷峰塔"></button>
+              <button class="map-volume-hit hit-qingbo" type="button" data-go="scroll" aria-label="进入清波门外聚景园" title="清波门外聚景园"></button>
+              <button class="map-volume-hit hit-fengle" type="button" data-go="scroll" aria-label="进入丰豫门外丰乐楼" title="丰豫门外丰乐楼"></button>
+              <button class="map-volume-hit hit-liujing" type="button" data-go="scroll" aria-label="进入六井水口相国祠" title="六井水口相国祠"></button>
+              <button class="map-volume-hit hit-jiuqu" type="button" data-go="scroll" aria-label="进入钱塘门外九曲城" title="钱塘门外九曲城"></button>
+              <button class="map-volume-hit hit-baidi" type="button" data-go="scroll" aria-label="进入上下湖间白公堤" title="上下湖间白公堤"></button>
+            </div>
+          </div>
+        </section>
+
+        <section id="scroll" class="view page-view scroll-view" aria-labelledby="scroll-title">
+          <h2 id="scroll-title" class="sr-only">巨石山下大石佛横卷</h2>
+          <div id="scroll-stage" class="scroll-stage" tabindex="0" aria-label="巨石山下大石佛横卷">
+            <div id="scroll-track" class="scroll-track"></div>
+          </div>
+
+          <div class="scroll-control-bar" aria-label="横卷位置控制">
+            <input id="scroll-range" class="scroll-range" type="range" min="0" max="1000" value="0" aria-label="左右移动横卷" />
+          </div>
+        </section>
+
+        <section id="notes" class="view page-view notes-view" aria-labelledby="notes-title">
+          <h2 id="notes-title" class="sr-only">拾遗</h2>
+          <div class="notes-reference-stage" aria-hidden="true"></div>
+        </section>
+
+        <section id="inquiry" class="view page-view inquiry-view" aria-labelledby="inquiry-title">
+          <div class="cold-knowledge-shell">
+            <header class="cold-hero">
+              <div class="cold-hero-copy">
+                <p class="cold-kicker">WEST LAKE MISCELLANY</p>
+                <h2 id="inquiry-title">西湖繁胜冷知识集</h2>
+                <p>
+                  以岁时、烟火与画卷微处为三条线索，展示南宋西湖风物里的冷知识。
+                </p>
+              </div>
+              <nav class="cold-tag-nav" aria-label="冷知识分区">
+                <button type="button" data-cold-jump="hushan-sui-shi"><span>01</span>湖山岁时</button>
+                <button type="button" data-cold-jump="hushang-yanhuo"><span>02</span>湖上烟火</button>
+                <button type="button" data-cold-jump="juanzhong-weishi"><span>03</span>卷中微识</button>
+              </nav>
+            </header>
+            <div id="cold-knowledge-sections" class="cold-sections" aria-live="polite"></div>
+          </div>
+        </section>
+      </main>
+
+    </div>
+
+    <div id="node-overlay" class="node-overlay" hidden>
+      <div class="overlay-backdrop" data-close-node></div>
+      <article class="node-panel paper-panel" role="dialog" aria-modal="true" aria-labelledby="node-panel-title">
+        <button class="panel-close" type="button" data-close-node aria-label="关闭节点">×</button>
+        <p id="node-panel-status" class="status-badge">待考证</p>
+        <h3 id="node-panel-title"></h3>
+        <p id="node-panel-subtitle" class="node-subtitle"></p>
+        <p id="node-panel-summary"></p>
+        <div id="node-panel-detail" class="node-panel-detail"></div>
+        <dl class="node-meta">
+          <div>
+            <dt>类别</dt>
+            <dd id="node-panel-category"></dd>
+          </div>
+          <div>
+            <dt>来源</dt>
+            <dd id="node-panel-source"></dd>
+          </div>
+        </dl>
+        <div class="panel-actions">
+          <button id="node-to-note" class="secondary-cta" type="button">查看拾遗</button>
+          <button id="node-to-inquiry" class="primary-cta inline" type="button">问湖</button>
+        </div>
+      </article>
+    </div>
+
+    <script src="./content-data.js?v=juanzhong-weishi-4cards"></script>
+    <script src="./app-api.js?v=api-bridge" data-main="./main.js?v=juanzhong-weishi-4cards"></script>
+  </body>
+</html>

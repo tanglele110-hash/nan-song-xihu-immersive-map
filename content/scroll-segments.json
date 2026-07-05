@@ -1,0 +1,28 @@
+[
+  {
+    "id": "sisheng-yanxiang-guan",
+    "title": "孤山四圣延祥观",
+    "width": 9449,
+    "height": 2480,
+    "imageAssetId": "scroll-sisheng-yanxiang-guan"
+  },
+  {
+    "id": "geling-pingzhang-di",
+    "title": "葛岭寺观平章第",
+    "width": 9449,
+    "height": 2480,
+    "cropLeft": 740,
+    "aliases": [
+      "jiasidao-ci-di"
+    ],
+    "imageAssetId": "scroll-geling-pingzhang-di"
+  },
+  {
+    "id": "volume-dashifo-yuan",
+    "title": "巨石山下大石佛",
+    "width": 9449,
+    "height": 2480,
+    "cropLeft": 740,
+    "imageAssetId": "scroll-dashifo-yuan"
+  }
+]

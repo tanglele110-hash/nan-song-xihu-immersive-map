@@ -1,0 +1,27 @@
+{
+  "title": "西湖繁胜全景图",
+  "subtitle": "Digital Scroll",
+  "mvpDeviceScope": "desktop-web",
+  "navigation": [
+    {
+      "id": "map",
+      "label": "入画",
+      "href": "/map"
+    },
+    {
+      "id": "scroll",
+      "label": "游湖",
+      "href": "/scroll"
+    },
+    {
+      "id": "notes",
+      "label": "拾遗",
+      "href": "/notes"
+    },
+    {
+      "id": "inquiry",
+      "label": "问湖",
+      "href": "/inquiry"
+    }
+  ]
+}

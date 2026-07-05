@@ -1,0 +1,47 @@
+[
+  {
+    "id": "note-entry-map",
+    "category": "画作概览",
+    "title": "从卷首到鸟瞰入口",
+    "status": "创作性解读",
+    "relatedNode": "duanqiao",
+    "summary": "Landing 与入画的关系被处理为从题名、卷首到全湖示意图的空间转换，帮助用户先建立观看仪式和方位感。",
+    "source": "项目设计说明，待补外部史料。"
+  },
+  {
+    "id": "note-north-bank",
+    "category": "图像线索",
+    "title": "西湖北岸十五处细节点",
+    "status": "待考证",
+    "relatedNode": "gushan-road",
+    "summary": "十五个节点来自当前 MVP 已确认清单，页面只使用节点名、图像位置和证据状态，不扩写未核实史实。",
+    "source": "PRD v0.6 节点清单。"
+  },
+  {
+    "id": "note-baoshu",
+    "category": "图像线索",
+    "title": "塔影与山麓寺院",
+    "status": "较可信",
+    "relatedNode": "baoshu-ta-chongshou-yuan",
+    "summary": "保叔塔与崇寿院适合作为北岸空间识别锚点，后续需补充出处、年代和画中位置依据。",
+    "source": "标注图与节点清单，待补文献。"
+  },
+  {
+    "id": "note-uncertain",
+    "category": "未定问题",
+    "title": "园林名称和沿革待核验",
+    "status": "待考证",
+    "relatedNode": "houleyuan-jifang-yuyuan",
+    "summary": "后乐园、集芳御园等名称涉及沿革与时段差异，首版在问湖中开放线索征集。",
+    "source": "待补来源。"
+  },
+  {
+    "id": "note-soundscape",
+    "category": "方法论",
+    "title": "随动声景的占位层",
+    "status": "创作性解读",
+    "relatedNode": "xicun-jiulou",
+    "summary": "MVP 先以水岸、市井、寺钟三类占位声层验证交互逻辑，正式音频需另行授权。",
+    "source": "TDD v0.4 声景策略。"
+  }
+]

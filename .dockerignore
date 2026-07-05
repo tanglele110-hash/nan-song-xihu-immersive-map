@@ -1,0 +1,20 @@
+node_modules
+**/node_modules
+**/dist
+.git
+.github
+.gstack
+playwright-report
+test-results
+*.log
+*.tmp
+tmp
+temp
+
+# Raw and export materials are not needed in container builds.
+data/raw
+data/processed
+exports
+
+# Keep design/ because the current Vite build still resolves confirmed
+# landing/map/header visual assets from that folder.
