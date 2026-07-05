@@ -15,7 +15,7 @@ test("legacy demo is served unchanged through the engineered web app", async ({ 
   await expect(page.locator(".map-overview-image")).toBeVisible();
   await expect(page.locator(".map-overview-image")).toHaveAttribute(
     "src",
-    /assets\/optimized\/map\/map-overview-bg\.webp$/
+    /assets\/(?:optimized\/map\/map-overview-bg|map-overview-bg-[\w-]+)\.webp$/
   );
   await expect(page.locator(".map-volume-hit.hit-stone")).toBeAttached();
 

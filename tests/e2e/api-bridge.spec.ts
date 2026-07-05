@@ -27,6 +27,7 @@ test("optional API bridge hydrates the legacy runtime without changing the shell
 
   expect(firstSegmentSrc).toMatch(/^\.\/assets\/scroll\//);
   await expect(page.locator(".landing-entry")).toHaveCount(4);
+  await expect(page.locator("body")).toHaveAttribute("data-view", "landing");
 
   await page.locator(".landing-entry-scroll").click();
   await expect(page).toHaveURL(/#scroll$/);
