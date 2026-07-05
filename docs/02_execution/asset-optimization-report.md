@@ -4,9 +4,7 @@ Updated: 2026-07-05
 
 ## Summary
 
-- Manifest assets: 54
-- Published files in `app/assets`: 54
-- Published asset size: 264.42 MB
+- Manifest-tracked source/download assets: 54 files, 264.42 MB
 - Proposed scroll tile size: 1024px
 - Proposed scroll tile levels: 100%, 50%, 25%
 - Display WebP derivatives: 51 files, 26.46 MiB
@@ -21,7 +19,7 @@ Updated: 2026-07-05
 - Runtime display paths now prefer `app/assets/optimized/**.webp` for landing, map, header, scroll, and cold-knowledge images.
 - Original PNG/JPG files and ZIP download packs remain in place for source fidelity and download behavior.
 
-## Size By Group
+## Manifest Asset Size By Group
 
 | Group | Files | Size |
 | --- | --- | --- |
@@ -32,7 +30,7 @@ Updated: 2026-07-05
 | landing | 2 | 4.31 MB |
 | map | 1 | 2.13 MB |
 
-## Size By Extension
+## Manifest Asset Size By Extension
 
 | Extension | Files | Size |
 | --- | --- | --- |
@@ -40,7 +38,7 @@ Updated: 2026-07-05
 | .zip | 3 | 93.81 MB |
 | .jpg | 3 | 61.94 MB |
 
-## Largest Files
+## Largest Manifest Files
 
 | File | Size |
 | --- | --- |
@@ -67,7 +65,7 @@ Updated: 2026-07-05
 
 ## Recommendations
 
-- First priority: create WebP or AVIF derivatives for the three scroll JPG files and keep JPG as fallback.
-- Second priority: generate 1024px scroll tiles at 100%, 50%, and 25% levels. This makes the scroll view eligible for lazy loading instead of loading three full-width JPG files up front.
-- Third priority: recompress cold-knowledge PNG cards or create WebP derivatives while keeping the original PNG cards available for download packs.
+- Done: WebP display derivatives now cover landing, map, header, scroll, and cold-knowledge images while keeping original PNG/JPG files and ZIP packs.
+- Next priority: generate and wire 1024px scroll tiles at 100%, 50%, and 25% levels. This makes the scroll view eligible for true viewport-level lazy loading instead of loading full-width scroll images.
+- Optional: evaluate AVIF for cold-knowledge cards after confirming visual fidelity against the current WebP outputs.
 - Keep the confirmed `app/index.html` presentation unchanged until the tiled renderer has its own E2E coverage.

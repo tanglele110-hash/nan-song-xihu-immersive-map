@@ -77,4 +77,12 @@ $env:E2E_API_BRIDGE = "optional"
 npm run test:e2e
 ```
 
+Vercel static production example:
+
+```powershell
+$env:E2E_BASE_URL = "https://nan-song-xihu-immersive-map.vercel.app/"
+$env:E2E_API_BRIDGE = "optional"
+npm run test:e2e
+```
+
 `E2E_API_BRIDGE=required` verifies that `/app/index.html?api=1` is hydrated by the API. `optional` accepts either API hydration or the static fallback, which is useful for Vercel/GitHub Pages previews that only publish the static MVP.

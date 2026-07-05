@@ -1,10 +1,10 @@
 # 部署清单
 
-更新时间：2026-07-04
+更新时间：2026-07-05
 
 ## 当前结论
 
-项目已具备本地、内网演示、静态前端部署、前端 + API 同源部署的基础条件。CI、Docker 和 Nginx 反向代理模板已经补齐；正式公网生产发布前，仍建议先在目标平台跑通一次完整部署，并继续推进素材体积优化。
+项目已具备本地、内网演示、静态前端部署、前端 + API 同源部署的基础条件。CI、Docker 和 Nginx 反向代理模板已经补齐；Vercel 静态生产预览已跑通，当前生产地址为 `https://nan-song-xihu-immersive-map.vercel.app/`。正式公网长期发布前仍建议继续评估国内访问速度、缓存策略和长卷瓦片化。
 
 ## 部署形态
 
@@ -37,7 +37,8 @@ apps/web/dist/
 
 - `/` 会通过根 `index.html` 跳转到 `/app/index.html`。
 - 页面默认使用 `app/content-data.js`，不依赖 API。
-- 当前发布素材约 246MB，能部署，但正式公网发布前建议继续做图片压缩、WebP/AVIF 或长卷瓦片。
+- 当前 `app/assets` 包含原始发布素材和 WebP 展示派生图；浏览器展示优先加载 `app/assets/optimized/**/*.webp`，原始 PNG/JPG 与 ZIP 下载包仍保留。
+- Vercel 静态部署已验证；`?api=1` 在无同源 API 时会走静态 fallback。
 
 ### 2. 前端 + API 同源部署
 
@@ -189,8 +190,11 @@ Nginx 路由：
 ```powershell
 npm run assets:report
 npm run assets:report:write
+npm run assets:optimize:display
 npm run assets:tiles:plan
 ```
+
+`assets:optimize:display` 会生成 `app/assets/optimized/**/*.webp` 展示副本。2026-07-05 已生成 51 张 WebP 展示派生图，展示输入约 170.61 MiB，输出约 26.46 MiB，浏览器展示侧预计减少约 144.16 MiB 下载量。
 
 可选生成 WebP 瓦片：
 
@@ -208,7 +212,7 @@ data/processed/tiles/scroll/
 
 ## 暂未完成的生产项
 
-- CI/CD、Docker 和 Nginx 模板已具备，但还需要在真实 GitHub/部署平台上跑通验证。
+- GitHub 集成到 Vercel 的静态生产部署已跑通；当前未配置自定义域名。
 - 跨域部署未启用 CORS；当前推荐同源反向代理。
-- 素材已有报告和瓦片生成脚本，但页面尚未切换到瓦片渲染。
+- 素材展示层已切换到 WebP 派生图；页面尚未切换到长卷瓦片渲染。
 - 真实问湖提交、数据库、审核后台仍不属于当前 MVP。

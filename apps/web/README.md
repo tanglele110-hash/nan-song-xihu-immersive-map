@@ -6,4 +6,4 @@ It must serve `app/index.html`, `app/styles.css`, and `app/main.js` unchanged as
 
 `app/content-data.js` is a generated bridge from `content/` into the legacy runtime. `app/app-api.js` optionally replaces that data from `GET /api/v1/app-content` when the page is opened with `?api=1`; otherwise it immediately loads `app/main.js` with static data. Both files should be checked with `npm run validate:content`.
 
-Production build copies `app/content-data.js`, `app/app-api.js`, `app/main.js`, and `app/assets/` into `apps/web/dist/app/`.
+Production build copies `app/content-data.js`, `app/app-api.js`, `app/main.js`, and `app/assets/` into `apps/web/dist/app/`. Runtime image display now prefers `app/assets/optimized/**/*.webp` where available; keep the original PNG/JPG files for source fidelity and download/archival behavior.

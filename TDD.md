@@ -146,10 +146,10 @@ internal source references
 | 模块 | 当前实现 |
 | --- | --- |
 | 路由 | 使用 hash：`#landing`、`#map`、`#scroll?target=...`、`#notes`、`#inquiry` |
-| Landing | `app/assets/landing/landing-bg.png` 作为整屏背景，四个入口为绝对定位透明按钮 |
-| 入画 | `app/assets/map/map-overview-bg.png` 作为底图，透明热区覆盖分卷文字 |
+| Landing | `app/assets/optimized/landing/landing-bg.webp` 优先作为整屏背景，PNG 保留为源图/降级，四个入口为绝对定位透明按钮 |
+| 入画 | `app/assets/optimized/map/map-overview-bg.webp` 优先作为底图，PNG 保留为源图/降级，透明热区覆盖分卷文字 |
 | 抬头 | `app-shell` 在主体验页统一显示，当前导航项标红 |
-| 游湖 | `scrollSegments` 拼接 `孤山四圣延祥观.jpg`、`葛岭寺观平章第.jpg`、`巨石山下大石佛.jpg` 三段横卷 |
+| 游湖 | `scrollSegments` 拼接 `孤山四圣延祥观.webp`、`葛岭寺观平章第.webp`、`巨石山下大石佛.webp` 三段展示派生图，源 JPG 仍保留 |
 | 横卷交互 | 底部 range 控制左右位置，Pointer Events 拖拽横向/纵向平移，wheel 按鼠标位置锚定缩放，键盘左右移动 |
 | 节点 | `scrollPanoramaNodes` 在横卷上生成朱砂纸签题签，文字逐字单列，坐标按底图同名题字精修 |
 | 信息卡片 | `cardNode` 节点使用统一 `bridge-detail-card`；长标题经 `compactNodeTitle()` 去括号别名并按长度缩小字号 |
@@ -348,8 +348,8 @@ position:
 
 内容实现：
 
-- 当前长卷素材直接读取 `app/assets/scroll/north-bank/` 下的三段发布级横卷，并由 `scrollSegments` 拼接。
-- 后续正式发布前再生成 WebP/AVIF、多分辨率或瓦片素材，放入 `public/assets/scroll/north-bank/` 或等价目录。
+- 当前长卷素材以 `app/assets/scroll/north-bank/` 下三段发布级横卷为源图，运行时通过 `optimizedImageSrc()` 优先读取 `app/assets/optimized/scroll/north-bank/*.webp` 展示派生图，并由 `scrollSegments` 拼接。
+- 后续长期发布前再生成多分辨率或瓦片素材，放入 `app/assets/optimized/`、`data/processed/tiles/` 或等价目录，并补 E2E 覆盖后再切换渲染器。
 - `南宋西湖北线加标注.jpg`、`南宋西湖北线加标注2.jpg`、`南宋西湖北线加标注3.jpg` 可作为后续节点定位和文字识别参考。
 - 当前横卷热点读取 `scrollPanoramaNodes`，包含标题、分类、分卷 id、归一化命中区域、摘要、考证状态、卡片正文和题签标签。
 - 15 个 `scrollNodes` 同时作为全量节点注册表、关联选项和可视热点的基础清单；后续仍需补正式史料来源和继续精修坐标。
@@ -453,9 +453,9 @@ position:
 ## 7. 素材与目录策略
 
 - `data/raw/`：原始采集数据，默认不提交 Git。
-- `app/assets/landing/landing-bg.png`：当前 Landing 底图。
-- `app/assets/map/map-overview-bg.png`：当前入画底图。
-- `app/assets/scroll/north-bank/`：当前 `游湖` 三段发布级横卷底图。
+- `app/assets/landing/landing-bg.png`：Landing 源图，运行时优先使用 `app/assets/optimized/landing/landing-bg.webp`。
+- `app/assets/map/map-overview-bg.png`：入画源图，运行时优先使用 `app/assets/optimized/map/map-overview-bg.webp`。
+- `app/assets/scroll/north-bank/`：`游湖` 三段发布级横卷源图，运行时优先使用 `app/assets/optimized/scroll/north-bank/*.webp`。
 - 内部原始标注资料：后续 `入画` 地图点、`游湖` 节点定位和文字标注校准参考，不进入公开仓库。
 - `data/processed/`：清洗后的中间数据，默认不提交 Git，除非用户明确确认。
 - `data/workbooks/`：稳定工作簿、测算表和可追踪表格。
@@ -469,7 +469,7 @@ position:
 
 1. 原始大图只作为源文件保存，不直接进入页面。
 2. 当前初稿可直接引用已确认底图；正式发布前 Landing、入画地图、游湖长卷分别生成独立 Web 优化素材。
-3. 长卷素材优先生成多分辨率或瓦片，避免一次加载 141MB 级别文件。
+3. 长卷当前已优先加载 WebP 展示派生图；下一步再生成多分辨率或瓦片，避免正式发布时一次加载完整长卷图。
 4. 标注参考图只用于录入坐标、文字和跳转关系；生产页面的地图点、热点、文字说明和卡片必须由数据层渲染。
 5. 生成 Web 素材时应尽量使用无文字标注版本；如必须使用标注参考图，应只用于内部调试，不进入最终用户界面。
 6. 所有生成文件保留处理脚本或参数记录，确保可复现。
@@ -512,7 +512,7 @@ position:
 - Landing 首屏目标 3 秒内可交互。
 - 长卷移动优先使用 transform，避免滚动中触发布局抖动。
 - 大图和后续内容按需加载；音频后置。
-- 当前已确认设计图可作为原型底图直接加载；正式发布前再替换为 Web 优化素材。原始超大图仍不得作为最终用户首屏大图直接加载。
+- 当前已确认设计图保留为源图，运行时优先加载 WebP 展示派生图；原始超大图仍不得作为最终用户首屏大图直接加载。
 
 仓库质量：
 

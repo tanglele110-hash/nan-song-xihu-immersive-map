@@ -45,6 +45,7 @@ Playwright E2E 当前使用本机 Chrome channel，覆盖 `1440x900` 与 `1024x7
 
 - 前端静态产物：`apps/web/dist/`，根 `index.html` 会跳转到 `/app/index.html`。
 - API 生产入口：先运行 `npm run build`，再运行 `npm run start:api`，实际入口为 `apps/api/dist/apps/api/src/server.js`。
+- Vercel 静态生产地址：`https://nan-song-xihu-immersive-map.vercel.app/`，当前阶段用于测试预览；静态部署下 `?api=1` 会回退到 `app/content-data.js`。
 - 部署清单：`docs/02_execution/deploy-checklist.md`。
 - CI：`.github/workflows/ci.yml`。
 - Docker / Nginx：`docker-compose.yml`、`deploy/docker/`、`deploy/nginx/westlake.conf`。
@@ -54,8 +55,11 @@ Playwright E2E 当前使用本机 Chrome channel，覆盖 `1440x900` 与 `1024x7
 ```powershell
 npm run assets:report
 npm run assets:report:write
+npm run assets:optimize:display
 npm run assets:tiles:plan
 ```
+
+`assets:optimize:display` 使用 ffmpeg 从 `app/assets/` 生成 `app/assets/optimized/**/*.webp` 展示副本；当前页面展示优先读取这些 WebP，原始 PNG/JPG 和下载 ZIP 仍保留。
 
 `assets:tiles:plan` 默认只输出规划；需要安装 `ffmpeg` 并显式追加 `-- --write` 才会生成 WebP 瓦片到 `data/processed/tiles/scroll/`。
 

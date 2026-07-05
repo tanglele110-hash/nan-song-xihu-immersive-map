@@ -1,10 +1,10 @@
 # 工程化状态与后续执行清单
 
-更新时间：2026-07-04
+更新时间：2026-07-05
 
 ## 0. 当前结论
 
-本项目当前状态不是“成熟生产级工程化项目”，而是“已具备工程化骨架、质量闸门和后端雏形的桌面 Web MVP 工程”。
+本项目当前状态不是“成熟生产级工程化项目”，而是“已具备工程化骨架、质量闸门、后端雏形、静态生产预览和展示素材优化的桌面 Web MVP 工程”。
 
 最重要的执行约束：
 
@@ -13,6 +13,14 @@
 - `apps/web` 的当前职责是 Vite 承载壳、构建入口和 API 代理，不是重新实现前端体验。
 - 移动端不纳入当前 MVP 验收。
 - 原始数据、截图、导出 PDF、临时文件未经确认不提交 Git。
+
+2026-07-05 增量结论：
+
+- GitHub 仓库 `tanglele110-hash/nan-song-xihu-immersive-map` 已建立并推送，`main` 触发 Vercel 自动部署。
+- Vercel 静态生产预览地址为 `https://nan-song-xihu-immersive-map.vercel.app/`，当前用于团队测试；暂不配置正式域名。
+- 展示素材已生成 51 张 WebP 派生图，浏览器展示侧预计减少约 144.16 MiB 下载量；原始 PNG/JPG 与 ZIP 下载包仍保留。
+- `E2E_BASE_URL` 已支持外部部署地址；Vercel 静态场景使用 `E2E_API_BRIDGE=optional`。
+- 2026-07-05 完整本地质量链路已通过：`npm run validate:content`、`npm run test`、`npm run build`、`npm run test:e2e`。
 
 ## 1. 已经做到位的内容
 
@@ -115,7 +123,7 @@
   - 问湖图册
   - 冷知识预览轮播
 - `tools/run-e2e.ts` 已解决 Windows 下 Playwright webServer 进程回收不稳定问题。
-- 最近一次已通过：
+- 2026-07-05 已通过：
   - `npm run validate:content`
   - `npm run test`
   - `npm run build`
@@ -145,41 +153,33 @@
 
 ### 2.2 React port 残留
 
-- `apps/web/src/**` 里仍保留早先 React port 代码。
-- 当前它不再是 MVP 前端来源，但仍占用目录和依赖。
-- 需要后续决策：
-  - 删除 React port 残留；
-  - 或移动到 archive；
-  - 或保留为未来迁移实验，但必须明确不参与当前 MVP build/runtime。
+- 已处理：当前 `apps/web/src/**` 不再存在，active wrapper 不包含 React runtime 依赖。
+- 当前仍需保持 wrapper-boundary 测试，防止后续误把前端入口切回框架重写版本。
 
-### 2.3 素材工程化不足
+### 2.3 素材工程化仍需深化
 
 - 目前仍有较多原始或设计素材直接散布在：
   - `design/`
   - `data/raw/`
   - `exports/`
   - 根目录图片
-- Web 发布级素材与原始素材尚未完全分层。
-- 尚未建立自动化素材生成流程：
-  - 压缩
-  - 尺寸检测
-  - WebP / AVIF
-  - 缩略图
-  - 长卷瓦片或多分辨率
+- Web 发布级素材与原始素材已有第一层分离：运行时展示优先使用 `app/assets/optimized/**/*.webp`，原始 PNG/JPG 与 ZIP 下载包保留。
+- 已建立展示图派生脚本：`npm run assets:optimize:display`。
+- 仍未完成：
+  - 尺寸/体积阈值自动检查
+  - AVIF 评估
+  - 长卷瓦片或多分辨率渲染
 - `content/assets-manifest.json` 已有雏形，但还不是完整发布资产管线。
 
-### 2.4 生产部署不足
+### 2.4 生产部署仍需正式化
 
-- 尚无 `.env.example`。
-- 尚无生产部署配置：
-  - 静态站点部署
-  - API 部署
-  - 反向代理
-  - 缓存策略
-- 尚无 CI/CD：
-  - GitHub Actions / 其他 CI
-  - 自动执行 validate / test / build / e2e
-- 尚无 release checklist。
+- 已有 `.env.example`、GitHub Actions、Docker/Nginx 模板、`vercel.json` 和 Vercel 静态生产预览。
+- 已验证 GitHub → Vercel 的静态部署链路，生产预览地址为 `https://nan-song-xihu-immersive-map.vercel.app/`。
+- 仍未完成：
+  - 正式域名和国内访问策略
+  - API 生产部署或 serverless 形态
+  - 缓存策略细化
+  - release checklist
 
 ### 2.5 后端仍是 MVP 只读雏形
 
@@ -204,32 +204,32 @@
   - 来源字段规范
   - 待考证内容展示规则
 
-### 2.7 Git 和交付边界未完成
+### 2.7 Git 和交付边界
 
-- 当前工作区大量文件仍处于未跟踪状态。
-- 还没有确认提交范围。
-- 根据项目规则，以下内容未经确认不能提交：
+- 当前工程化 MVP 已整理为可提交 Git 仓库，并推送到 GitHub。
+- `main` 用于 Vercel 静态生产预览，工作分支为 `codex/desktop-web-mvp-architecture`。
+- 根据项目规则，以下内容未经确认仍不能提交：
   - 原始数据
   - 截图
   - 导出 PDF
   - 临时文件
   - 外部资料
-- 需要先做提交范围审计，再分批 commit。
+- `.gitignore` 已覆盖 `data/raw/`、`exports/`、`test-results/`、`_scratch/`、`.vercel/` 等本地或外部产物。
 
 ## 3. 后续继续完善清单
 
 ### P0：先稳住当前工程
 
-- [ ] 重新运行并记录当前质量闸门结果：
+- [x] 重新运行并记录当前质量闸门结果：
   - `npm run validate:content`
   - `npm run test`
   - `npm run build`
   - `npm run test:e2e`
 - [ ] 建立 `docs/02_execution/` 下的每日执行记录。
-- [ ] 清点 `git status --short`，按“代码 / 文档 / 内容 / 原始素材 / 导出物”分类。
-- [ ] 明确第一批可提交范围。
-- [ ] 不提交 `data/raw/`、`exports/`、截图和临时文件，除非用户明确确认。
-- [ ] 删除或归档 Playwright / 构建产生的临时目录，确保 `.gitignore` 生效。
+- [x] 清点 `git status --short`，按“代码 / 文档 / 内容 / 原始素材 / 导出物”分类。
+- [x] 明确第一批可提交范围并推送到 GitHub。
+- [x] 不提交 `data/raw/`、`exports/`、截图和临时文件，除非用户明确确认。
+- [x] 确认 Playwright / 构建产生的临时目录由 `.gitignore` 管住，不进入 Git。
 
 ### P1：前端 demo 数据外置但保持视觉一致
 
@@ -253,30 +253,27 @@
 
 ### P2：清理 React port 残留
 
-- [ ] 审计 `apps/web/src/**` 是否仍被 build/test 引用。
-- [ ] 如果不参与当前 MVP：
-  - 删除；
-  - 或移动到本地内部归档区；
-  - 或在 README 中标注为历史实验，不作为当前运行入口。
-- [ ] 移除不再需要的 React 依赖：
+- [x] 审计 `apps/web/src/**` 是否仍被 build/test 引用。
+- [x] 如果不参与当前 MVP：
+  - 删除或归档；
+  - 并在 wrapper-boundary 测试中锁定当前运行入口。
+- [x] 移除不再需要的 React 依赖：
   - `react`
   - `react-dom`
   - `@vitejs/plugin-react`
   - testing-library 相关依赖
-- [ ] 删除或调整无效 React tests。
-- [ ] 确认 `npm run test`、`npm run build` 仍通过。
+- [x] 删除或调整无效 React tests。
+- [x] 确认 `npm run test`、`npm run build` 仍通过。
 
 ### P3：素材发布管线
 
-- [ ] 盘点当前素材目录：
+- [x] 盘点当前素材目录：
   - `design/`
   - `data/raw/`
   - `data/processed/`
   - `exports/`
   - 根目录图片
-- [ ] 制定 Web 发布素材目录，例如：
-  - `public/assets/`
-  - 或 `app/assets/`
+- [x] 制定 Web 发布素材目录：当前使用 `app/assets/`，展示派生图放入 `app/assets/optimized/`。
 - [ ] 建立素材 manifest 字段规范：
   - id
   - src
@@ -292,7 +289,8 @@
   - 尺寸
   - 格式
   - 是否误用原始大图
-- [ ] 为长卷制定瓦片或多分辨率方案。
+- [x] 建立展示图派生脚本：`npm run assets:optimize:display`。
+- [ ] 为长卷制定并接入瓦片或多分辨率方案。
 
 ### P4：后端成熟化
 
@@ -312,19 +310,14 @@
 
 ### P5：CI/CD 和部署
 
-- [ ] 增加 GitHub Actions 或等价 CI：
+- [x] 增加 GitHub Actions 或等价 CI：
   - install
   - validate content
   - unit tests
   - build
   - e2e
-- [ ] 增加 production preview 命令。
-- [ ] 明确部署目标：
-  - 纯静态
-  - Node API
-  - 静态 + serverless API
-  - 展陈本地包
-- [ ] 写部署文档：
+- [x] 明确当前阶段部署目标：Vercel 静态生产预览用于团队测试；API 生产部署后置。
+- [x] 写部署文档：
   - `docs/02_execution/deploy-checklist.md`
 - [ ] 写 release checklist：
   - 版本号
@@ -348,13 +341,13 @@
 
 ## 4. 推荐下一步执行顺序
 
-1. 先做提交范围审计，确认哪些工程文件可以进入 Git。
-2. 清理 React port 残留，避免后续再次误打开旧 React 页面。
-3. 保持 `app/` 视觉不动，开始把 `app/main.js` 中的数据逐类外置。
-4. 每迁出一类数据，就跑 E2E 和人工打开页面确认保真。
-5. 建立素材发布目录和 manifest 规则。
-6. 增加 CI，让工程化质量闸门自动跑。
-7. 再进入部署和后端提交能力设计。
+1. 保持 `app/` 视觉不动，继续把 `app/main.js` 中仍内嵌的数据逐类外置到 `content/` 或 API。
+2. 每迁出一类数据，就跑 E2E 和人工打开页面确认保真。
+3. 给素材发布管线补体积阈值、尺寸、格式和误用原始大图检查。
+4. 为长卷接入瓦片或多分辨率渲染，并在切换前补 E2E 覆盖。
+5. 评估 API 生产部署或 serverless 形态；当前 Vercel 静态预览保持 `E2E_API_BRIDGE=optional`。
+6. 补 release checklist、正式域名/国内访问策略和回滚说明。
+7. 继续补节点来源字段、notes 史料详情和内容可信度分层。
 
 ## 5. 新窗口接续提示词
 
@@ -364,11 +357,12 @@
 项目路径：F:\codex\04西湖繁胜全景图。
 请先阅读 AGENTS.md、README.md、PRD.md、TDD.md、design.md，以及 docs/02_execution/2026-07-04-engineering-status-and-next-steps.md。
 当前红线：app/index.html、app/styles.css、app/main.js 是已确认 demo 和 MVP 前端体验唯一基准，后续工程化必须保证最终网页呈现与 demo 一致，不能用 React 或其他框架重写相似版本。
-请继续补齐工程化，优先顺序：
-1. 审计 git status 和提交范围；
-2. 清理或归档 apps/web/src 的 React port 残留；
-3. 在不改变 demo 视觉和交互的前提下，把 app/main.js 的内嵌数据逐类切到 content/API；
-4. 补素材发布管线；
-5. 补 CI/CD 与部署文档。
+请继续补齐工程化，当前已完成 GitHub/Vercel 静态部署、React port 清理、CI 基础、Docker/Nginx 模板和 WebP 展示派生图。优先顺序：
+1. 在不改变 demo 视觉和交互的前提下，把 app/main.js 的内嵌数据逐类切到 content/API；
+2. 补素材发布管线的体积阈值、尺寸、格式和误用原始大图检查；
+3. 为长卷接入瓦片或多分辨率渲染，并先补 E2E 覆盖；
+4. 评估 API 生产部署或 serverless 形态；当前 Vercel 静态预览使用 E2E_API_BRIDGE=optional；
+5. 补 release checklist、正式域名/国内访问策略和回滚说明；
+6. 继续补节点来源字段、notes 史料详情和内容可信度分层。
 每一步都要跑 npm run validate:content、npm run test、npm run build、npm run test:e2e，并明确说明是否仍与 demo 一致。
 ```

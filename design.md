@@ -7,8 +7,8 @@
 - 审计流程：`F:\antigravity\.agents\skills\gstack\plan-design-review`
 - 需求依据：`PRD.md` v0.10 Desktop Web MVP Scope、`TDD.md` v0.9 Desktop Web Architecture Lock
 - 当前原型：`app/index.html`、`app/styles.css`、`app/main.js`
-- Landing 当前底图：`app/assets/landing/landing-bg.png`
-- 入画当前底图：`app/assets/map/map-overview-bg.png`
+- Landing 当前源图：`app/assets/landing/landing-bg.png`；运行时优先展示 `app/assets/optimized/landing/landing-bg.webp`
+- 入画当前源图：`app/assets/map/map-overview-bg.png`；运行时优先展示 `app/assets/optimized/map/map-overview-bg.webp`
 - 当前范围：前置 Landing + `入画`、`游湖`、`拾遗`、`问湖` 四个一级版块
 - MVP 设备范围：桌面 Web 端；移动端响应式与触控体验后置，不进入当前 MVP 验收
 
@@ -465,7 +465,7 @@ MVP 强制规则：
 - 页面不得直接依赖 100MB 级原始图作为生产资源。
 - Landing、入画、游湖、问湖卡片都要有 Web 优化版本。
 - 每个图片资源需记录宽高、格式、来源、压缩参数和是否可发布。
-- 长卷建议使用多分辨率切片或瓦片加载。
+- 长卷当前优先使用 WebP 展示派生图；长期发布建议继续推进多分辨率切片或瓦片加载。
 
 ### 11.2 缺图与慢加载
 
