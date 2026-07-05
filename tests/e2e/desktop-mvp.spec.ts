@@ -13,12 +13,20 @@ test("legacy demo is served unchanged through the engineered web app", async ({ 
   await expect(page.locator("body")).toHaveAttribute("data-view", "map");
   await expect(page.locator(".site-credit")).toBeHidden();
   await expect(page.locator(".map-overview-image")).toBeVisible();
+  await expect(page.locator(".map-overview-image")).toHaveAttribute(
+    "src",
+    /assets\/optimized\/map\/map-overview-bg\.webp$/
+  );
   await expect(page.locator(".map-volume-hit.hit-stone")).toBeAttached();
 
   await page.locator(".map-volume-hit.hit-stone").click();
   await expect(page).toHaveURL(/#scroll\?target=dashifo-yuan$/);
   await expect(page.locator("body")).toHaveAttribute("data-view", "scroll");
   await expect(page.locator(".scroll-stage")).toBeVisible();
+  await expect(page.locator(".scroll-panorama-image").first()).toHaveAttribute(
+    "src",
+    /assets\/optimized\/scroll\/north-bank\/.+\.webp$/
+  );
 
   const marker = page.locator(".scroll-bridge-marker[data-node='dashifo-yuan']");
   await expect(marker).toBeVisible();
@@ -44,10 +52,18 @@ test("legacy demo is served unchanged through the engineered web app", async ({ 
 
   const firstColdCard = page.locator(".cold-card-image").first();
   await expect(firstColdCard).toBeVisible();
+  await expect(firstColdCard.locator("img")).toHaveAttribute(
+    "src",
+    /assets\/optimized\/cold-knowledge\/.+\.webp$/
+  );
   await firstColdCard.click();
 
   const preview = page.locator("#cold-card-preview");
   await expect(preview).toHaveClass(/is-open/);
+  await expect(page.locator(".cold-card-preview-stage img")).toHaveAttribute(
+    "src",
+    /assets\/optimized\/cold-knowledge\/.+\.webp$/
+  );
   await expect(page.locator(".cold-card-preview-count")).toHaveText(/1 \/ \d+/);
 
   await page.locator(".cold-card-preview-next").click();

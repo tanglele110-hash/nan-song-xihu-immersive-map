@@ -8,7 +8,8 @@
       name="description"
       content="《西湖繁胜全景图》沉浸式交互网站初稿。"
     />
-    <link rel="stylesheet" href="./styles.css?v=site-credit-landing" />
+    <link rel="preload" as="image" href="./assets/optimized/landing/landing-bg.webp" type="image/webp" fetchpriority="high" />
+    <link rel="stylesheet" href="./styles.css?v=asset-optimized-20260705" />
   </head>
   <body>
     <div class="site-frame">
@@ -43,8 +44,10 @@
           <div class="map-overview-stage">
             <img
               class="map-overview-image"
-              src="./assets/map/map-overview-bg.png"
+              src="./assets/optimized/map/map-overview-bg.webp"
               alt="南宋西湖环湖全景导览图"
+              loading="lazy"
+              decoding="async"
             />
 
             <div class="map-volume-links" aria-label="西湖北岸分卷入口">

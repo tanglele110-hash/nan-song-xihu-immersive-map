@@ -14,6 +14,7 @@
     "build": "npm run generate:app-content && npm --workspaces --if-present run build",
     "assets:report": "tsx tools/report-assets.ts",
     "assets:report:write": "tsx tools/report-assets.ts --write",
+    "assets:optimize:display": "tsx tools/generate-display-derivatives.ts",
     "assets:tiles:plan": "tsx tools/generate-scroll-tiles.ts",
     "generate:app-content": "tsx tools/generate-app-content.ts",
     "test": "npm --workspaces --if-present run test",

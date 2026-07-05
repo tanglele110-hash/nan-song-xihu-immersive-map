@@ -1,6 +1,6 @@
 # Asset Optimization Report
 
-Updated: 2026-07-04
+Updated: 2026-07-05
 
 ## Summary
 
@@ -9,6 +9,17 @@ Updated: 2026-07-04
 - Published asset size: 264.42 MB
 - Proposed scroll tile size: 1024px
 - Proposed scroll tile levels: 100%, 50%, 25%
+- Display WebP derivatives: 51 files, 26.46 MiB
+- Current `app/assets` total after derivatives: 105 files, 290.88 MiB
+
+## Implemented Display Derivatives
+
+- Generated WebP display derivatives with `npm run assets:optimize:display`.
+- Original display inputs: 170.61 MiB.
+- Optimized display outputs: 26.46 MiB.
+- Estimated browser payload reduction for optimized display images: 144.16 MiB.
+- Runtime display paths now prefer `app/assets/optimized/**.webp` for landing, map, header, scroll, and cold-knowledge images.
+- Original PNG/JPG files and ZIP download packs remain in place for source fidelity and download behavior.
 
 ## Size By Group
 

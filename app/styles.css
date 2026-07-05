@@ -143,6 +143,10 @@ textarea:focus-visible {
   inset: 0;
   pointer-events: none;
   background-image: url("./assets/landing/landing-bg.png");
+  background-image: image-set(
+    url("./assets/optimized/landing/landing-bg.webp") type("image/webp"),
+    url("./assets/landing/landing-bg.png") type("image/png")
+  );
   background-position: center center;
   background-size: 100% 100%;
   opacity: 1;
@@ -2819,11 +2823,11 @@ textarea:focus-visible {
 }
 
 :root {
-  --map-header-image: url("./assets/header/map-header.png");
-  --scroll-header-image: url("./assets/header/scroll-header.png");
-  --notes-reference-image: url("./assets/header/notes-reference.png");
-  --inquiry-header-image: url("./assets/header/inquiry-header.png");
-  --header-seal-image: url("./assets/header/header-seal.png");
+  --map-header-image: image-set(url("./assets/optimized/header/map-header.webp") type("image/webp"), url("./assets/header/map-header.png") type("image/png"));
+  --scroll-header-image: image-set(url("./assets/optimized/header/scroll-header.webp") type("image/webp"), url("./assets/header/scroll-header.png") type("image/png"));
+  --notes-reference-image: image-set(url("./assets/optimized/header/notes-reference.webp") type("image/webp"), url("./assets/header/notes-reference.png") type("image/png"));
+  --inquiry-header-image: image-set(url("./assets/optimized/header/inquiry-header.webp") type("image/webp"), url("./assets/header/inquiry-header.png") type("image/png"));
+  --header-seal-image: image-set(url("./assets/optimized/header/header-seal.webp") type("image/webp"), url("./assets/header/header-seal.png") type("image/png"));
 }
 
 body[data-view="map"] {

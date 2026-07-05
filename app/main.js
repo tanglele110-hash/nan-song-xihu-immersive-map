@@ -146,6 +146,13 @@
   );
   const coldKnowledgeIndexBySrc = new Map(coldKnowledgeGallery.map((card, index) => [card.src, index]));
 
+  function optimizedImageSrc(src) {
+    if (typeof src !== "string") return src;
+    if (!src.startsWith("./assets/") || src.startsWith("./assets/optimized/")) return src;
+    if (!/\.(png|jpe?g)$/i.test(src)) return src;
+    return src.replace("./assets/", "./assets/optimized/").replace(/\.(png|jpe?g)$/i, ".webp");
+  }
+
   const fallbackMapPoints = [
     {
       id: "map-duanqiao",
@@ -763,8 +770,9 @@
       image.width = segment.width;
       image.height = segment.height;
       image.decoding = "async";
+      image.loading = "lazy";
       image.addEventListener("load", refreshScrollMetrics, { once: true });
-      image.src = segment.src || scrollDir + segment.image;
+      image.src = optimizedImageSrc(segment.src || scrollDir + segment.image);
       frame.appendChild(image);
       scrollTrack.appendChild(frame);
     });
@@ -951,10 +959,11 @@
       const hasCardSize = Number.isFinite(cardWidth) && Number.isFinite(cardHeight) && cardWidth > 0 && cardHeight > 0;
       const ratioStyle = hasCardSize ? ` style="--cold-card-ratio: ${cardWidth} / ${cardHeight}"` : "";
       const dimensionAttrs = hasCardSize ? ` width="${cardWidth}" height="${cardHeight}"` : "";
+      const displaySrc = optimizedImageSrc(card.src);
       return `
         <article class="cold-card cold-card-image"${ratioStyle} role="button" tabindex="0" data-cold-card-index="${galleryIndex}" data-cold-card-src="${card.src}" data-cold-card-alt="${card.alt}">
           <div class="cold-card-media">
-            <img src="${card.src}" alt="${card.alt}"${dimensionAttrs} loading="lazy" />
+            <img src="${displaySrc}" alt="${card.alt}"${dimensionAttrs} loading="lazy" decoding="async" />
           </div>
         </article>
       `;
@@ -1022,7 +1031,7 @@
     const count = preview.querySelector(".cold-card-preview-count");
     state.coldPreviewIndex = index;
     preview.dataset.currentIndex = String(index);
-    image.src = card.src;
+    image.src = optimizedImageSrc(card.src);
     image.alt = card.alt || card.title;
     title.textContent = `${card.sectionTitle} · ${card.title}`;
     count.textContent = `${index + 1} / ${coldKnowledgeGallery.length}`;
@@ -1061,7 +1070,7 @@
     const card = coldKnowledgeGallery[normalizeColdKnowledgeIndex(index)];
     if (!card) return;
     const image = new Image();
-    image.src = card.src;
+    image.src = optimizedImageSrc(card.src);
   }
 
   function bindEvents() {
